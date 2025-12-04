@@ -1,0 +1,50 @@
+{
+  "startDate": "2026-01-22T23:00:00.000Z",
+  "endDate": "2026-02-23T23:00:00.000Z",
+  "incomes": [
+    {
+      "name": "salaris",
+      "amount": 1200
+    },
+    {
+      "name": "Huur toeslag",
+      "amount": 100
+    },
+    {
+      "name": "Zorg toeslag",
+      "amount": 100
+    }
+  ],
+  "fixedCosts": [
+    {
+      "name": "Boodschappen",
+      "amount": 350
+    },
+    {
+      "name": "Huur",
+      "amount": 600
+    },
+    {
+      "name": "Budget Energie",
+      "amount": 105
+    },
+    {
+      "name": "Zorgverzekering",
+      "amount": 120
+    }
+  ],
+  "variableCosts": [
+    {
+      "name": "Kleding",
+      "amount": 80
+    },
+    {
+      "name": "GTA 6",
+      "amount": 80
+    }
+  ],
+  "totalIncome": 1400,
+  "totalFixedCost": 1175,
+  "totalVariableCost": 160,
+  "estimatedSavings": 65
+}

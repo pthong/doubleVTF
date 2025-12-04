@@ -1,0 +1,913 @@
+-- Active: 1761212284788@@127.0.0.1@5432
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Finance Dashboard" />
+    <meta name="author" content="" />
+    <title>DoubleV TF — Finance</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🤫</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">DoubleV TF</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="app">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Finance
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
+                                data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                                data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#pagesCollapseAuth" aria-expanded="false"
+                                        aria-controls="pagesCollapseAuth">
+                                        Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="register.html">Register</a>
+                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                                        data-bs-target="#pagesCollapseError" aria-expanded="false"
+                                        aria-controls="pagesCollapseError">
+                                        Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
+                                        data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="401.html">401 Page</a>
+                                            <a class="nav-link" href="404.html">404 Page</a>
+                                            <a class="nav-link" href="500.html">500 Page</a>
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="finance.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-coins"></i></div>
+                                Finance
+                            </a>
+                            <a class="nav-link" href="fitness.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-dumbbell"></i></div>
+                                Fitness
+                            </a>
+                            <a class="nav-link" href="photostories.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-camera"></i></div>
+                                Photo Stories
+                            </a>
+                            <a class="nav-link" href="charts.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts
+                            </a>
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Kanzaki
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Finance</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Overview</li>
+                        </ol>
+                        <div class="row">
+
+                            <div class="col-12">
+                                <form class="row g-3">
+
+                                    <input type="date" class="form-control col-2" id="startDateInput" aria-label="Start date">
+                                    <input type="date" class="form-control col-2" id="endDateInput" aria-label="End date">
+
+                                </form>
+
+
+                                <div class="d-flex justify-content-end my-3">
+                                    <button id="saveBtn" class="btn btn-success">
+                                        <i class="fas fa-save me-1" aria-hidden="true"></i> Save
+                                    </button>
+                                </div>
+
+                                <script>
+                                    document.getElementById('saveBtn')?.addEventListener('click', async () => {
+                                        const btn = document.getElementById('saveBtn');
+                                        btn.disabled = true;
+                                        const totals = computed();
+                                        const payload = {
+                                            startDate: financeMonth.startDate instanceof Date ? financeMonth.startDate.toISOString() : financeMonth.startDate,
+                                            endDate: financeMonth.endDate instanceof Date ? financeMonth.endDate.toISOString() : financeMonth.endDate,
+                                            incomes: financeMonth.incomes,
+                                            fixedCosts: financeMonth.fixedCosts,
+                                            variableCosts: financeMonth.variableCosts,
+                                            totalIncome: totals.totalIncome,
+                                            totalFixedCost: totals.totalFixedCost,
+                                            totalVariableCost: totals.totalVariableCost,
+                                            estimatedSavings: totals.estimatedSavings
+                                        };
+                                        console.log(payload);
+                                        try {
+                                            const res = await fetch('/finance/save', {
+                                                method: 'POST',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify(payload)
+                                            });
+                                            if (!res.ok) throw new Error(`Server responded ${res.status}`);
+                                            // optional: read JSON response if any
+                                            // const data = await res.json().catch(() => null);
+                                            alert('Saved successfully');
+                                        } catch (err) {
+                                            console.error('Save failed', err);
+                                            alert('Save failed. See console for details.');
+                                        } finally {
+                                            btn.disabled = false;
+                                        }
+                                    });
+                                </script>
+
+                            </div>
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card mb-4" style="background-color: #123456;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <div class="text-white-50 small">Estimated Savings</div>
+                                                <div class="text-white fw-bold fs-1">€ <span
+                                                        data-bind="estimatedSavings" data-format="currency"></span>
+                                                </div>
+                                                <div class="text-white-50 small">this month</div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <i class="fas fa-coins fa-3x text-white" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card mb-4" style="background-color: #123456;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <div class="text-white-50 small">Incomes</div>
+                                                <div class="text-white fw-bold fs-1">€ <span data-bind="totalIncome"
+                                                        data-format="currency"></span></div>
+                                                <div class="text-white-50 small">this month</div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <i class="fas fa-arrow-up fa-3x text-white-50" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card mb-4" style="background-color: #123456;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <div class="text-white-50 small">Fixed costs</div>
+                                                <div class="text-white fw-bold fs-1">€ <span data-bind="totalFixedCost"
+                                                        data-format="currency"></span></div>
+                                                <div class="text-white-50 small">this month</div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <i class="fas fa-arrow-down fa-3x text-white-50" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card mb-4" style="background-color: #123456;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div>
+                                                <div class="text-white-50 small">Variable costs</div>
+                                                <div class="text-white fw-bold fs-1">€ <span
+                                                        data-bind="totalVariableCost" data-format="currency"></span>
+                                                </div>
+                                                <div class="text-white-50 small">this month</div>
+                                            </div>
+                                            <div class="ms-3">
+                                                <i class="fas fa-arrow-down fa-3x text-white-50" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Fixed costs
+
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover mb-0">
+                                                <tbody id="fixedCostsBody"></tbody>
+                                            </table>
+
+                                            <div class="mt-3 d-flex justify-content-end">
+                                                <button id="addFixedCostBtn" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-plus"></i> Add fixed cost
+                                                </button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Variables
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th class="text-end">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="variableCostsBody"></tbody>
+                                            </table>
+
+                                            <div class="mt-3 d-flex justify-content-end">
+                                                <button id="addVariableCostBtn" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-plus"></i> Add variable cost
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Income
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-hover mb-0">
+
+                                                <tbody id="incomesBody"></tbody>
+                                            </table>
+
+                                            <div class="mt-3 d-flex justify-content-end">
+                                                <button id="addIncomeBtn" class="btn btn-sm btn-outline-primary">
+                                                    <i class="fas fa-plus"></i> Add income
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-area me-1"></i>
+                                        Area Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-bar me-1"></i>
+                                        Bar Chart Example
+                                    </div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                All finance months
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="all-table">
+                                    <thead>
+                                        <tr>
+                                            <th>endMonth</th>
+                                            <th>estimatedSavings</th>
+                                            <th>totalVariableCost</th>
+                                            <th>totalFixedCost</th>
+                                            <th>actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ALL</th>
+                                            <th>84</th>
+                                            <th>84</th>
+                                            <th>84</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td> november</td>
+                                            <td> 42</td>
+                                            <td>42</td>
+                                            <td>42</td>
+                                        </tr>
+                                           <tr>
+                                            <td> december</td>
+                                            <td> 42</td>
+                                            <td>42</td>
+                                            <td>42</td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Vue removed: custom vanilla data-binding implemented below -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+            crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+            crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="js/FinanceMonth.js"></script>
+        <script>
+
+            let financeMonth;
+
+            const state = {
+                // Month-level metadata
+                startDate: null,
+                endDate: null,
+                // Line items
+                fixedCosts: [],
+                variableCosts: [],
+                incomes: []
+            };
+
+            function currency(n) {
+                const num = Number(n);
+                return Number.isFinite(num) ? num.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '';
+            }
+            function computed() {
+                const totalIncome = financeMonth.totalIncome();
+                const totalFixedCost = financeMonth.totalFixedCost();
+                const totalVariableCost = financeMonth.totalVariableCost();
+                const estimatedSavings = financeMonth.estimatedSavings();
+                return { totalIncome, totalFixedCost, totalVariableCost, estimatedSavings };
+            }
+
+            function bind() {
+                const values = computed();
+                document.querySelectorAll('[data-bind]').forEach(el => {
+                    const key = el.getAttribute('data-bind');
+                    let val = values[key];
+                    if (el.getAttribute('data-format') === 'currency') {
+                        val = currency(val);
+                    }
+                    el.textContent = val != null ? val : '';
+                });
+            }
+
+            function renderCosts(type, tbodyId) {
+                const arr = state[type];
+                const tbody = document.getElementById(tbodyId);
+                if (!tbody) return;
+                tbody.innerHTML = '';
+                arr.forEach((row, i) => {
+                    const tr = document.createElement('tr');
+                    // Drag & drop attributes
+                    tr.draggable = true;
+                    tr.dataset.type = type;
+                    tr.dataset.index = String(i);
+                    tr.addEventListener('dragstart', onDragStart);
+                    tr.addEventListener('dragover', onDragOver);
+                    tr.addEventListener('drop', onDrop);
+                    // Name cell
+                    const nameTd = document.createElement('td');
+                    nameTd.appendChild(makeEditableSpan(type, i, 'name', row.name));
+                    // Amount cell
+                    const amountTd = document.createElement('td');
+                    amountTd.className = 'text-end';
+                    amountTd.appendChild(makeEditableSpan(type, i, 'amount', '€ ' + currency(row.amount)));
+                    // Delete button cell
+                    const deleteTd = document.createElement('td');
+                    deleteTd.className = 'text-end';
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'btn btn-sm btn-outline-danger';
+                    btn.setAttribute('aria-label', 'Delete row');
+                    btn.textContent = '×';
+                    btn.addEventListener('click', () => {
+                        // Remove from state and financeMonth, then rerender
+                        if (type === 'fixedCosts') {
+                            state.fixedCosts.splice(i, 1);
+                            financeMonth.removeFixedCost(i);
+                        } else if (type === 'variableCosts') {
+                            state.variableCosts.splice(i, 1);
+                            financeMonth.removeVariableCost(i);
+                        } else if (type === 'incomes') {
+                            state.incomes.splice(i, 1);
+                            financeMonth.removeIncome(i);
+                        }
+                        rerender();
+                    });
+                    deleteTd.appendChild(btn);
+                    tr.appendChild(nameTd);
+                    tr.appendChild(amountTd);
+                    tr.appendChild(deleteTd);
+                    tbody.appendChild(tr);
+                });
+                // Total row (use TH to match columns semantics)
+                const totalTr = document.createElement('tr');
+                totalTr.className = 'fw-bold';
+                const labelTd = document.createElement('th');
+                labelTd.textContent = 'Total';
+                const valueTd = document.createElement('th');
+                valueTd.className = 'text-end';
+                const totals = computed();
+                let val;
+                if (type === 'fixedCosts') {
+                    val = totals.totalFixedCost;
+                } else if (type === 'variableCosts') {
+                    val = totals.totalVariableCost;
+                } else if (type === 'incomes') {
+                    val = totals.totalIncome;
+                } else {
+                    val = 0;
+                }
+                valueTd.textContent = '€ ' + currency(val);
+                totalTr.appendChild(labelTd);
+                totalTr.appendChild(valueTd);
+                // Empty header cell to align with delete column
+                const emptyTd = document.createElement('th');
+                totalTr.appendChild(emptyTd);
+                tbody.appendChild(totalTr);
+            }
+
+            // Drag & drop handlers
+            let dragState = { type: null, fromIndex: null };
+            function onDragStart(ev) {
+                const tr = ev.currentTarget;
+                dragState.type = tr.dataset.type;
+                dragState.fromIndex = Number(tr.dataset.index);
+                ev.dataTransfer.effectAllowed = 'move';
+                // setData required for Firefox
+                ev.dataTransfer.setData('text/plain', `${dragState.type}:${dragState.fromIndex}`);
+            }
+            function onDragOver(ev) {
+                ev.preventDefault();
+                ev.dataTransfer.dropEffect = 'move';
+            }
+            function onDrop(ev) {
+                ev.preventDefault();
+                const targetTr = ev.currentTarget;
+                const type = targetTr.dataset.type;
+                const toIndex = Number(targetTr.dataset.index);
+                if (dragState.type !== type || dragState.fromIndex == null || toIndex == null) return;
+                const list = state[type];
+                if (!Array.isArray(list)) return;
+                if (dragState.fromIndex === toIndex) return;
+                const [moved] = list.splice(dragState.fromIndex, 1);
+                list.splice(toIndex, 0, moved);
+                // Keep financeMonth arrays in sync (same reference by default)
+                if (type === 'fixedCosts') {
+                    financeMonth.fixedCosts = list;
+                } else if (type === 'variableCosts') {
+                    financeMonth.variableCosts = list;
+                } else if (type === 'incomes') {
+                    financeMonth.incomes = list;
+                }
+                dragState = { type: null, fromIndex: null };
+                rerender();
+            }
+
+            function makeEditableSpan(type, index, field, displayValue) {
+                const span = document.createElement('span');
+                span.className = 'editable';
+                span.textContent = displayValue;
+                span.dataset.type = type;
+                span.dataset.index = index;
+                span.dataset.field = field;
+                span.addEventListener('click', startEdit);
+                return span;
+            }
+
+            function startEdit(e) {
+                const span = e.currentTarget;
+                const type = span.dataset.type;
+                const index = Number(span.dataset.index);
+                const field = span.dataset.field;
+                const original = state[type][index][field];
+                const input = document.createElement('input');
+                input.type = field === 'amount' ? 'number' : 'text';
+                input.className = field === 'amount' ? 'form-control form-control-sm text-end d-inline-block' : 'form-control form-control-sm';
+                if (field === 'amount') { input.step = '0.01'; input.style.width = '8rem'; input.value = Number(original).toFixed(2); }
+                else { input.value = original; }
+                function commit() {
+                    if (field === 'amount') {
+                        const val = parseFloat(input.value); state[type][index][field] = Number.isFinite(val) ? val : 0;
+                    } else { state[type][index][field] = input.value.trim(); }
+                    rerender();
+                }
+                input.addEventListener('blur', commit);
+                input.addEventListener('keyup', ev => { if (ev.key === 'Enter') input.blur(); });
+                span.replaceWith(input);
+                input.focus(); input.select();
+            }
+
+            function rerender() {
+                renderCosts('fixedCosts', 'fixedCostsBody');
+                renderCosts('variableCosts', 'variableCostsBody');
+                renderCosts('incomes', 'incomesBody');
+                bind();
+            }
+            // Keep date inputs in sync with current state
+            function updateDateInputs() {
+                const startInput = document.getElementById('startDateInput');
+                const endInput = document.getElementById('endDateInput');
+                if (startInput && state.startDate instanceof Date && !isNaN(state.startDate)) {
+                    startInput.value = state.startDate.toISOString().slice(0, 10);
+                }
+                if (endInput && state.endDate instanceof Date && !isNaN(state.endDate)) {
+                    endInput.value = state.endDate.toISOString().slice(0, 10);
+                }
+            }
+            // Fetch /finance/:filename and replace financeMonth, then rerender
+            async function loadFinanceFile(filename) {
+                try {
+                    const res = await fetch(`/finance/${encodeURIComponent(filename)}`);
+                    if (!res.ok) throw new Error(`Failed to load ${filename}: ${res.status}`);
+                    const json = await res.json();
+                    const fm = json && json.data ? json.data : null;
+                    if (!fm) throw new Error('Empty finance data');
+                    const sd = fm.startDate ? new Date(fm.startDate) : new Date();
+                    const ed = fm.endDate ? new Date(fm.endDate) : new Date();
+                    financeMonth = new FinanceMonth({
+                        startDate: sd,
+                        endDate: ed,
+                        incomes: Array.isArray(fm.incomes) ? fm.incomes : [],
+                        fixedCosts: Array.isArray(fm.fixedCosts) ? fm.fixedCosts : [],
+                        variableCosts: Array.isArray(fm.variableCosts) ? fm.variableCosts : []
+                    });
+                    // Sync state with FinanceMonth
+                    state.startDate = financeMonth.startDate instanceof Date ? financeMonth.startDate : new Date(fm.startDate ?? Date.now());
+                    state.endDate = financeMonth.endDate instanceof Date ? financeMonth.endDate : new Date(fm.endDate ?? Date.now());
+                    state.fixedCosts = financeMonth.fixedCosts;
+                    state.variableCosts = financeMonth.variableCosts;
+                    state.incomes = financeMonth.incomes;
+                    // Ensure chronological order; if swapped, correct silently
+                    if (state.endDate < state.startDate) {
+                        const tmp = state.startDate;
+                        state.startDate = state.endDate;
+                        state.endDate = tmp;
+                        financeMonth.startDate = state.startDate;
+                        financeMonth.endDate = state.endDate;
+                    }
+                    rerender();
+                    // Reflect loaded month in the date inputs
+                    updateDateInputs();
+                } catch (e) {
+                    console.error('Failed to load file', filename, e);
+                    alert('Failed to load selected month.');
+                }
+            }
+
+            // Fetch /finance/list and render the table .all-table
+            async function loadAndRenderAllMonths() {
+                try {
+                    const res = await fetch('/finance/list');
+                    if (!res.ok) throw new Error(`List fetch failed: ${res.status}`);
+                    const rows = await res.json();
+                    renderAllMonthsTable(rows);
+                } catch (e) {
+                    console.error('Failed to load months list', e);
+                }
+            }
+
+            function renderAllMonthsTable(rows) {
+                const table = document.querySelector('table.all-table');
+                if (!table) return;
+                const tbody = table.querySelector('tbody');
+                let tfoot = table.querySelector('tfoot');
+                if (!tbody) return;
+                tbody.innerHTML = '';
+                // Build rows
+                let sumSavings = 0;
+                let sumVar = 0;
+                let sumFix = 0;
+                rows.forEach(r => {
+                    const tr = document.createElement('tr');
+                    tr.dataset.filename = r.filename;
+                    tr.style.cursor = 'default';
+                    // endMonth from filename's end date portion (YYYYMMDD-YYYYMMDD.json)
+                    let endMonth = r.filename;
+                    const m = r.filename.match(/\d{8}-(\d{8})\.json$/);
+                    if (m) {
+                        const end = m[1];
+                        const y = end.slice(0, 4);
+                        const mo = end.slice(4, 6);
+                        const d = end.slice(6, 8);
+                        const dt = new Date(`${y}-${mo}-${d}T00:00:00Z`);
+                        endMonth = !isNaN(dt) ? dt.toLocaleDateString('nl-NL', { year: 'numeric', month: 'long' }) : r.filename;
+                    }
+                    const tdEnd = document.createElement('td'); tdEnd.textContent = endMonth;
+                    const tdSav = document.createElement('td'); tdSav.className = 'text-end'; tdSav.textContent = currency(r.estimmatedSavings ?? 0);
+                    const tdVar = document.createElement('td'); tdVar.className = 'text-end'; tdVar.textContent = currency(r.totalVariableCost ?? 0);
+                    const tdFix = document.createElement('td'); tdFix.className = 'text-end'; tdFix.textContent = currency(r.totalFixedCost ?? 0);
+                    const tdAct = document.createElement('td'); tdAct.className = 'text-end';
+                    const delBtn = document.createElement('button');
+                    delBtn.type = 'button';
+                    delBtn.className = 'btn btn-sm btn-outline-danger';
+                    delBtn.title = 'Delete month';
+                    delBtn.innerHTML = '<i class="fas fa-trash" aria-hidden="true"></i>';
+                    delBtn.addEventListener('click', async (ev) => {
+                        ev.stopPropagation();
+                        const fn = tr.dataset.filename;
+                        if (!fn) return;
+                        const ok = confirm(`Delete ${fn}? This cannot be undone.`);
+                        if (!ok) return;
+                        try {
+                            const res = await fetch(`/finance/${encodeURIComponent(fn)}`, { method: 'DELETE' });
+                            if (!res.ok) {
+                                const err = await res.json().catch(() => ({}));
+                                throw new Error(err.error || `Delete failed: ${res.status}`);
+                            }
+                            await loadAndRenderAllMonths();
+                        } catch (e) {
+                            console.error('Delete failed', e);
+                            alert('Delete failed. See console for details.');
+                        }
+                    });
+                    tdAct.appendChild(delBtn);
+                    sumSavings += Number(r.estimmatedSavings ?? 0) || 0;
+                    sumVar += Number(r.totalVariableCost ?? 0) || 0;
+                    sumFix += Number(r.totalFixedCost ?? 0) || 0;
+                    tr.appendChild(tdEnd);
+                    tr.appendChild(tdSav);
+                    tr.appendChild(tdVar);
+                    tr.appendChild(tdFix);
+                    tr.addEventListener('click', () => {
+                        const fn = tr.dataset.filename;
+                        if (fn) loadFinanceFile(fn);
+                    });
+                    tr.appendChild(tdAct);
+                    tbody.appendChild(tr);
+                });
+                // Footer totals (create tfoot if missing)
+                if (!tfoot) {
+                    tfoot = document.createElement('tfoot');
+                    table.appendChild(tfoot);
+                }
+                const existingRow = tfoot.querySelector('tr');
+                const ftRow = document.createElement('tr');
+                const thAll = document.createElement('th'); thAll.textContent = 'ALL';
+                const thSav = document.createElement('th'); thSav.className = 'text-end'; thSav.textContent = currency(sumSavings);
+                const thVar = document.createElement('th'); thVar.className = 'text-end'; thVar.textContent = currency(sumVar);
+                const thFix = document.createElement('th'); thFix.className = 'text-end'; thFix.textContent = currency(sumFix);
+                ftRow.appendChild(thAll);
+                ftRow.appendChild(thSav);
+                ftRow.appendChild(thVar);
+                ftRow.appendChild(thFix);
+                if (existingRow) tfoot.replaceChild(ftRow, existingRow); else tfoot.appendChild(ftRow);
+            }
+            function addItem(listKey, tbodyId) {
+                state[listKey].push({ name: 'New item', amount: 0 });
+                rerender();
+                const tbody = document.getElementById(tbodyId);
+                if (!tbody) return;
+                // Last row is the total; pick the one before it
+                const targetSpan = tbody.querySelector('tr:nth-last-child(2) span.editable[data-field="name"]');
+                targetSpan?.click();
+            }
+
+            async function init() {
+                // Load current month from backend and replace financeMonth
+                try {
+                    const res = await fetch('/finance/current-month');
+                    if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+                    const payload = await res.json();
+                    const fm = payload && payload.data ? payload.data : null;
+                    if (fm) {
+                        // Convert ISO strings to Date where applicable
+                        const sd = fm.startDate ? new Date(fm.startDate) : undefined;
+                        const ed = fm.endDate ? new Date(fm.endDate) : undefined;
+                        financeMonth = new FinanceMonth({
+                            startDate: sd instanceof Date && !isNaN(sd) ? sd : new Date(),
+                            endDate: ed instanceof Date && !isNaN(ed) ? ed : new Date(),
+                            incomes: Array.isArray(fm.incomes) ? fm.incomes : [],
+                            fixedCosts: Array.isArray(fm.fixedCosts) ? fm.fixedCosts : [],
+                            variableCosts: Array.isArray(fm.variableCosts) ? fm.variableCosts : []
+                        });
+                    } else {
+                        // Fallback empty month if no data
+                        financeMonth = new FinanceMonth({ startDate: new Date(), endDate: new Date(), incomes: [], fixedCosts: [], variableCosts: [] });
+                    }
+                } catch (e) {
+                    console.error('Failed to load current month', e);
+                    // Graceful fallback
+                    financeMonth = new FinanceMonth({ startDate: new Date(), endDate: new Date(), incomes: [], fixedCosts: [], variableCosts: [] });
+                }
+
+                // Sync state with FinanceMonth
+                state.startDate = financeMonth.startDate;
+                state.endDate = financeMonth.endDate;
+                state.fixedCosts = financeMonth.fixedCosts;
+                state.variableCosts = financeMonth.variableCosts;
+                state.incomes = financeMonth.incomes;
+
+                rerender();
+
+                // Initialize date inputs from financeMonth object
+                const startInput = document.getElementById('startDateInput');
+                const endInput = document.getElementById('endDateInput');
+                updateDateInputs();
+
+                function syncInputs() {
+                    if (startInput && state.startDate instanceof Date) startInput.value = state.startDate.toISOString().slice(0, 10);
+                    if (endInput && state.endDate instanceof Date) endInput.value = state.endDate.toISOString().slice(0, 10);
+                }
+
+                function handleDateChange() {
+                    if (startInput && startInput.value) {
+                        const d = new Date(startInput.value + 'T00:00:00');
+                        if (!isNaN(d)) {
+                            state.startDate = d;
+                            financeMonth.startDate = d;
+                        }
+                    }
+                    if (endInput && endInput.value) {
+                        const d = new Date(endInput.value + 'T00:00:00');
+                        if (!isNaN(d)) {
+                            state.endDate = d;
+                            financeMonth.endDate = d;
+                        }
+                    }
+                    // Ensure chronological order; if swapped, correct silently
+                    if (financeMonth.endDate < financeMonth.startDate) {
+                        const tmp = financeMonth.startDate;
+                        financeMonth.startDate = financeMonth.endDate;
+                        financeMonth.endDate = tmp;
+                        state.startDate = financeMonth.startDate;
+                        state.endDate = financeMonth.endDate;
+                        syncInputs();
+                    }
+                    rerender();
+                }
+
+                startInput?.addEventListener('change', handleDateChange);
+                endInput?.addEventListener('change', handleDateChange);
+
+
+                document.getElementById('addFixedCostBtn')?.addEventListener('click', () => {
+                    addItem('fixedCosts', 'fixedCostsBody');
+                });
+
+                document.getElementById('addVariableCostBtn')?.addEventListener('click', () => {
+                    addItem('variableCosts', 'variableCostsBody');
+                });
+
+                document.getElementById('addIncomeBtn')?.addEventListener('click', () => {
+                    addItem('incomes', 'incomesBody');
+                });
+
+
+
+                // Load list of all months and render the summary table
+                await loadAndRenderAllMonths();
+
+            }
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+
+        </script>
+    </div>
+</body>
+
+</html>

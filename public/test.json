@@ -1,0 +1,106 @@
+{
+  "startDate": "2025-10-24T00:00:00.000Z",
+  "endDate": "2025-12-24T00:00:00.000Z",
+  "incomes": [
+    {
+      "name": "Salary",
+      "amount": 3600
+    },
+    {
+      "name": "Salary",
+      "amount": 3600
+    }
+  ],
+  "fixedCosts": [
+    {
+      "name": "Boodschappen",
+      "amount": 380
+    },
+    {
+      "name": "Dwi Handayani",
+      "amount": 230
+    },
+    {
+      "name": "VVE",
+      "amount": 302.55
+    },
+    {
+      "name": "DUO Hoofdrekening",
+      "amount": 487.71
+    },
+    {
+      "name": "Regionale belasting groep",
+      "amount": 30.44
+    },
+    {
+      "name": "Ziggo",
+      "amount": 41.27
+    },
+    {
+      "name": "Pathe",
+      "amount": 23
+    },
+    {
+      "name": "Lot Hyptheek",
+      "amount": 938.95
+    },
+    {
+      "name": "Budget Energie",
+      "amount": 105
+    },
+    {
+      "name": "Gemeente rijswijk?",
+      "amount": 84.01
+    },
+    {
+      "name": "DSW",
+      "amount": 158.5
+    },
+    {
+      "name": "Canal+",
+      "amount": 4.99
+    },
+    {
+      "name": "WorldPay",
+      "amount": 11.99
+    },
+    {
+      "name": "PayPal",
+      "amount": 2.99
+    },
+    {
+      "name": "Vodafone",
+      "amount": 25.01
+    },
+    {
+      "name": "Odido",
+      "amount": 20
+    },
+    {
+      "name": "ABN",
+      "amount": 5.85
+    },
+    {
+      "name": "Legalec",
+      "amount": 37.81
+    },
+    {
+      "name": "ANWB Fiets verzekering",
+      "amount": 15.29
+    }
+  ],
+  "variableCosts": [
+    {
+      "name": "cc: music and zhong chill",
+      "amount": 100
+    },
+    {
+      "name": "Sparen voor keyboard",
+      "amount": 350
+    },
+    {
+      "name": "Papa Cadeau",
+      "amount": 100
+    }
+  ]
+}
